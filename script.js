@@ -8,3 +8,20 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+
+/* CHRISTMAS PROMO POPUP */
+
+const christmasPopup = document.getElementById("christmasPopup");
+const closePopup = document.getElementById("closePopup");
+
+// Tampilkan popup saat pertama kali berkunjung
+if (!sessionStorage.getItem("christmasPopupClosed")) {
+    christmasPopup.style.display = "flex";
+}
+
+// Tombol tutup popup
+closePopup.addEventListener("click", function () {
+    christmasPopup.style.display = "none";
+
+    sessionStorage.setItem("christmasPopupClosed", "true");
+});
