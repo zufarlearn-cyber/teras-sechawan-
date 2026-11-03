@@ -30,45 +30,50 @@ closePopup.addEventListener("click", function () {
    SEBESEK CATALOG SLIDER
 ================================= */
 
-const sebesekTrack = document.querySelector(".sebesek-track");
-const sebesekSlides = document.querySelectorAll(".sebesek-slide");
-const sebesekPrev = document.querySelector(".slider-prev");
-const sebesekNext = document.querySelector(".slider-next");
-const sebesekCounter = document.querySelector(".slider-counter");
 
-let sebesekIndex = 0;
+document.addEventListener("DOMContentLoaded", function () {
 
-function updateSebesekSlider() {
+    const track = document.querySelector(".sebesek-track");
+    const slides = document.querySelectorAll(".sebesek-slide");
+    const prevButton = document.querySelector(".slider-prev");
+    const nextButton = document.querySelector(".slider-next");
+    const counter = document.querySelector(".slider-counter");
 
-    sebesekTrack.style.transform =
-        `translateX(-${sebesekIndex * 100}%)`;
-
-    sebesekCounter.textContent =
-        `0${sebesekIndex + 1} / 0${sebesekSlides.length}`;
-
-}
-
-sebesekNext.addEventListener("click", function() {
-
-    sebesekIndex++;
-
-    if (sebesekIndex >= sebesekSlides.length) {
-        sebesekIndex = 0;
+    if (!track || !prevButton || !nextButton || !counter || slides.length === 0) {
+        return;
     }
 
-    updateSebesekSlider();
+    let currentIndex = 0;
 
-});
+    function updateSlider() {
 
+        track.style.transform =
+            "translateX(-" + (currentIndex * 100) + "%)";
 
-sebesekPrev.addEventListener("click", function() {
+        counter.textContent =
+            String(currentIndex + 1).padStart(2, "0") +
+            " / " +
+            String(slides.length).padStart(2, "0");
 
-    sebesekIndex--;
-
-    if (sebesekIndex < 0) {
-        sebesekIndex = sebesekSlides.length - 1;
     }
 
-    updateSebesekSlider();
+    nextButton.addEventListener("click", function () {
+
+        currentIndex = (currentIndex + 1) % slides.length;
+
+        updateSlider();
+
+    });
+
+    prevButton.addEventListener("click", function () {
+
+        currentIndex =
+            (currentIndex - 1 + slides.length) % slides.length;
+
+        updateSlider();
+
+    });
+
+    updateSlider();
 
 });
