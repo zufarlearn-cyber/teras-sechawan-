@@ -25,3 +25,50 @@ closePopup.addEventListener("click", function () {
 
     sessionStorage.setItem("christmasPopupClosed", "true");
 });
+
+/* =================================
+   SEBESEK CATALOG SLIDER
+================================= */
+
+const sebesekTrack = document.querySelector(".sebesek-track");
+const sebesekSlides = document.querySelectorAll(".sebesek-slide");
+const sebesekPrev = document.querySelector(".slider-prev");
+const sebesekNext = document.querySelector(".slider-next");
+const sebesekCounter = document.querySelector(".slider-counter");
+
+let sebesekIndex = 0;
+
+function updateSebesekSlider() {
+
+    sebesekTrack.style.transform =
+        `translateX(-${sebesekIndex * 100}%)`;
+
+    sebesekCounter.textContent =
+        `0${sebesekIndex + 1} / 0${sebesekSlides.length}`;
+
+}
+
+sebesekNext.addEventListener("click", function() {
+
+    sebesekIndex++;
+
+    if (sebesekIndex >= sebesekSlides.length) {
+        sebesekIndex = 0;
+    }
+
+    updateSebesekSlider();
+
+});
+
+
+sebesekPrev.addEventListener("click", function() {
+
+    sebesekIndex--;
+
+    if (sebesekIndex < 0) {
+        sebesekIndex = sebesekSlides.length - 1;
+    }
+
+    updateSebesekSlider();
+
+});
