@@ -838,3 +838,130 @@ z-index: 2;
     }
 
 }
+
+/* =====================================
+   TEH CELUP — KHUSUS HALAMAN
+===================================== */
+
+.page-teh-celup .teh-celup-collection {
+    padding: 80px 5%;
+    background-color: #F4EBDD;
+    color: #762D35;
+}
+
+.page-teh-celup .collection-heading {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.page-teh-celup .collection-heading h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+    color: #762D35;
+}
+
+.page-teh-celup .collection-heading p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #762D35;
+}
+
+.page-teh-celup .teh-celup-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.page-teh-celup .teh-celup-card {
+    background-color: #F4EBDD;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.page-teh-celup .teh-celup-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+}
+
+.page-teh-celup .teh-celup-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.page-teh-celup .teh-celup-content {
+    padding: 25px 10px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.page-teh-celup .teh-celup-content .detail-label {
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    color: #762D35;
+}
+
+.page-teh-celup .teh-celup-content h2 {
+    font-size: 28px;
+    margin: 0 0 15px;
+    color: #762D35;
+}
+
+.page-teh-celup .teh-celup-content p:not(.detail-label) {
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+    color: #762D35;
+}
+
+.page-teh-celup .teh-celup-button {
+    display: inline-block;
+    width: fit-content;
+    margin-top: auto;
+    padding: 12px 0;
+    color: #762D35;
+    text-decoration: none;
+    border-bottom: 1px solid #762D35;
+    font-size: 13px;
+    letter-spacing: 1px;
+    transition: 0.3s ease;
+}
+
+.page-teh-celup .teh-celup-button:hover {
+    opacity: 0.65;
+}
+
+/* RESPONSIVE TEH CELUP */
+
+@media (max-width: 900px) {
+    .page-teh-celup .teh-celup-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+}
+
+@media (max-width: 600px) {
+    .page-teh-celup .teh-celup-collection {
+        padding: 50px 20px;
+    }
+
+    .page-teh-celup .collection-heading h2 {
+        font-size: 28px;
+    }
+
+    .page-teh-celup .teh-celup-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .page-teh-celup .teh-celup-content h2 {
+        font-size: 25px;
+    }
+}
